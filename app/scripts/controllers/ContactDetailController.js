@@ -1,6 +1,6 @@
 function ContactDetailController($scope, contact, ContactService) {
   $scope.contact = contact;
-  $scope.editable = false;
+  $scope.editable = contact.id ? false : true;
 
   $scope.edit = function() {
   	$scope.editable = true;

@@ -30,6 +30,15 @@ angular
           },
         }
       })
+      .when('/create', {
+        templateUrl: 'views/contactDetail.html',
+        controller: 'ContactDetailController',
+        resolve: {
+          contact: function($route, ContactService) { 
+            return {};
+          },
+        }
+      })
       .otherwise({
         redirectTo: '/list'
       });;

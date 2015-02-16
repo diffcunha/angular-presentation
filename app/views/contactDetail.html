@@ -10,10 +10,16 @@
 
 <div class="row">
   <div class="col-md-3 col-lg-3" align="center">
-    <img alt="User Pic" ng-src="{{ contact.picture }}" class="img-thumbnail"> 
+    <img alt="User Pic" ng-src="{{ contact.picture }}" ng-if="contact.picture" class="img-thumbnail"> 
   </div>
   <div class="col-md-9 col-lg-9">
     <form class="form-horizontal">
+      <div class="form-group" ng-if="!contact.picture && editable">
+        <label for="picture" class="col-sm-2 control-label">Picture URL</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="picture" placeholder="Picture URL" ng-model="contact.picture">
+        </div>
+      </div>
       <div class="form-group">
         <label for="twitter" class="col-sm-2 control-label">Twitter</label>
         <div class="col-sm-10">

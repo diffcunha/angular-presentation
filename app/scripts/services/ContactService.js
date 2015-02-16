@@ -14,15 +14,15 @@ function ContactService() {
     name: "Luís Faustino",
     picture: "https://pbs.twimg.com/profile_images/381816018/Luis_20090722_0542-2_400x400.jpg",
     twitter: "luisfaustino",
-    email: "contact@diogocunha.me",
-    phone: "+351 919 417 538"
+    email: "luis@mailbox.com",
+    phone: "+351 123 456 789"
   }, {
     id: 3,
     name: "João Jerónimo",
     picture: "https://pbs.twimg.com/profile_images/1832824166/34291_421706182824_548192824_4610945_62073_n_400x400.jpg",
     twitter: "joaojeronimo",
-    email: "contact@diogocunha.me",
-    phone: "+351 919 417 538"
+    email: "joao@mailbox.com",
+    phone: "+351 123 456 789"
   }];
 
   function getAll() {
@@ -30,15 +30,15 @@ function ContactService() {
   }
 
   function get(id) {
-    return contacts[id-1];
+    return angular.copy(contacts[id-1]);
   }
 
   function save(contact) {
     if(contact.id) {
       contacts[contact.id-1] = contact;
     } else {
-      contact.id = lastId++;
-      contact.push(contact);
+      contact.id = ++lastId;
+      contacts.push(contact);
     }
     return contact;
   }
